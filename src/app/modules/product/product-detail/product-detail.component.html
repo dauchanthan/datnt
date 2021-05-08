@@ -1,0 +1,41 @@
+<body>
+  <div class="container">
+    <div class="mainProduct">
+      <div class="row" *ngIf="productId">
+        <div class="col-12 col-3">
+          <div class="product-img" *ngFor="let item of productImage">
+            <div class="product-img__img">
+              <img [src]="item.image" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-9">
+          <div class="row">
+            <div class="col-12 col-lg-5">
+              <div class="productId-img">
+                <img [src]="productId?.product?.image" alt="" />
+              </div>
+            </div>
+            <div class="col-12 col-lg-7">
+              <div class="product-info">
+                <h3 class="product-title">{{ productId?.product?.name }}</h3>
+                <span class="product-price">{{
+                  productId?.product?.price
+                }}</span>
+                <p class="product-description">
+                  {{ productId?.product?.description }}
+                </p>
+                <button class="product-btn" (click)="byProduct(productId)">
+                  <span>them gio hang</span>
+                </button>
+                <div class="like-btn">
+                  <button><i class="far fa-thumbs-up"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

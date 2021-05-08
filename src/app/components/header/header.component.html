@@ -1,0 +1,56 @@
+<header>
+  <div class="container-fluid">
+    <div
+      class="nav__content dflex align-center justify-content"
+      *ngIf="!isLogged; else show"
+    >
+      <div class="nav__logo">
+        <a class="logo" routerLink="/home">BigMarket</a>
+      </div>
+
+      <div class="nav__content-btn dflex align-center">
+        <a href="" routerLink="/login" class="btn-login">dang nhap</a>
+        <a routerLink="/register">dang ki</a>
+      </div>
+    </div>
+  </div>
+  <ng-template #show>
+    <div class="dflex align-center justify-content">
+      <div class="nav__logo">
+        <a class="logo" routerLink="/home">BigMarket</a>
+      </div>
+      <ul class="nav__content-menu dflex align-items-center">
+        <li class="nav__content-item">
+          <a href="" class="nav__content-link" routerLink="/home">trang chu </a>
+        </li>
+        <li class="nav__content-item">
+          <a href="" class="nav__content-link" routerLink="/product"
+            >san pham
+          </a>
+        </li>
+        <li class="nav__content-item">
+          <a href="" class="nav__content-link" routerLink="/info">tin tuc</a>
+        </li>
+        <li class="nav__content-item">
+          <a href="" class="nav__content-link" routerLink="/messenger"
+            >lien he
+          </a>
+        </li>
+      </ul>
+
+      <div class="btn dflex align-center">
+        <a class="avatar-link">
+          <img
+            class="img-avarta"
+            [src]="
+              'data:image/jpeg;base64,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'
+            "
+            alt=""
+          />
+        </a>
+        <a class="userName">{{ username }}</a>
+        <a href="#" class="btn-dn" (click)="logOut()">dang xuat</a>
+      </div>
+    </div>
+  </ng-template>
+</header>

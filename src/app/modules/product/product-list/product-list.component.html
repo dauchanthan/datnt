@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="product-select dflex align-center">
+    <div class="option">Sap xep theo:</div>
+
+    <!-- <app-select-field [(ngModel)]="fileOption"></app-select-field> -->
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-4" *ngFor="let item of showProduct">
+      <div class="product-item">
+        <img [src]="item.image" alt="" />
+      </div>
+      <div class="product-info">
+        <a class="product-title" href="#" routerLink="/product/{{ item.id }}">{{
+          item.name
+        }}</a>
+        <span class="product-price" [ngStyle]="{ color: '#0b7679' }">{{
+          item.price
+        }}</span>
+      </div>
+    </div>
+  </div>
+  <!-- <app-pagination
+    [totalSize]="showProduct.length"
+    (pageChange)="handlePageChange($event)"
+  >
+  </app-pagination> -->
+</div>

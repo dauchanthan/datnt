@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="login-wrap">
+    <h2 class="title">dang nhap</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onLogin()">
+      <div class="form-group">
+        <input type="text" placeholder="email" formControlName="email" />
+      </div>
+
+      <span
+        class="col alert alert-danger"
+        role="alert"
+        *ngIf="
+          registerForm.controls.email?.hasError('required') &&
+          registerForm.controls.email?.touched
+        "
+      >
+        email is required!
+      </span>
+      <small *ngIf="registerForm.controls.email.errors?.pattern"
+        >Must fill pattern Email</small
+      >
+      <div class="form-group">
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+      </div>
+      <a routerLink="/register" class="linkRegister">Need an account ?</a>
+      <button class="btn" type="submit" [disabled]="!registerForm.valid">
+        dang nhap
+      </button>
+    </form>
+  </div>
+</div>

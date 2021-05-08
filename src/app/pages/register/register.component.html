@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="login-wrap">
+    <h2 class="title">dang ki</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="ten dang nhap"
+          formControlName="username"
+        />
+      </div>
+      <span
+        class="col alert alert-danger"
+        role="alert"
+        *ngIf="
+          registerForm.controls.username?.hasError('required') &&
+          registerForm.controls.username?.touched
+        "
+      >
+        Name is required!
+      </span>
+
+      <div class="form-group">
+        <input type="text" placeholder="email" formControlName="email" />
+      </div>
+
+      <span
+        class="col alert alert-danger"
+        role="alert"
+        *ngIf="
+          registerForm.controls.email?.hasError('required') &&
+          registerForm.controls.email?.touched
+        "
+      >
+        email is required!
+      </span>
+      <small *ngIf="registerForm.controls.email.errors?.pattern"
+        >Must fill pattern Email</small
+      >
+      <div class="form-group">
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+      </div>
+
+      <button class="btn" type="submit" [disabled]="!registerForm.valid">
+        dang ki
+      </button>
+    </form>
+  </div>
+</div>
